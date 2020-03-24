@@ -18,7 +18,8 @@ public class ManageEmployee {
     public static void main(String[] args) {
 
         try {
-            Configuration configuration = new Configuration().configure(Employee.class.getResource("/hibernate.cfg.xml"));
+            Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+            configuration.addResource("Employee.hbm.xml");
             StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
             serviceRegistryBuilder.applySettings(configuration.getProperties());
             ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
